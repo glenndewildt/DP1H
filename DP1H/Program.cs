@@ -13,7 +13,7 @@ namespace DP1H
         static void Main(string[] args)
         {
             FileReader r = new FileReader();
-            r.ReadFile();
+            var t = r.ReadFile();
 
             Console.ReadLine();
            

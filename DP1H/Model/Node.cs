@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
-   abstract class Node : NodeInterface
+   abstract public class Node : NodeInterface
     {
        public int input1;
        public int input2;

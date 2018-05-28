@@ -13,11 +13,9 @@ namespace DP1H.Reader
     {
 
 
-        public string[] ReadFile() {
+        public Dictionary<string, Node> ReadFile() {
             Dictionary<string, Node> nodes = new Dictionary<string, Node>();
-            List<string> Itnodes = new List<string>();
 
-            List<Node> ciruit = new List<Node>();
             string[] lines = System.IO.File.ReadAllLines(@"c:\users\glenn\documents\visual studio 2015\Projects\DP1H\DP1H\Data\Circuit1_FullAdder.txt");
             NodeFactory factory = new NodeFactory();
             factory.RegisterNode("PROBE", new Probe());
@@ -53,14 +51,14 @@ namespace DP1H.Reader
                     break;
                 }
             }
-            for (int x = lines.Length - 1; x > counter; x--) {
+            for (int x = lines.Length-1 ; x > counter-1; x--) {
                 foreach (KeyValuePair<string, Node> entry in nodes)
                 {
                     Regex regex = new Regex("^(.*):");
                     var r = regex.Match(lines[x]);
                     string k = r.Groups[1].ToString();
 
-                    if (k == entry.Key && !Itnodes.Contains(entry.Key))
+                    if (k == entry.Key )
                     {
                         entry.Value.connected_nodes = new List<Node>();
 
@@ -76,7 +74,6 @@ namespace DP1H.Reader
                             if (nodes.TryGetValue(d, out myNode))
                             {
                                 entry.Value.connected_nodes.Add(myNode);
-                                Itnodes.Add(entry.Key);
                             }
 
                         }
@@ -87,7 +84,7 @@ namespace DP1H.Reader
                 }
                 
             }
-            return lines;
+            return nodes;
 
         }
 
