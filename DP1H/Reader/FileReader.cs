@@ -70,7 +70,6 @@ namespace DP1H.Reader
                         foreach (var d in data)
                         {
                             Node myNode ;
-                            Console.Write(d.ToString());
                             if (nodes.TryGetValue(d, out myNode))
                             {
                                 entry.Value.connected_nodes.Add(myNode);

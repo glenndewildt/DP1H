@@ -17,7 +17,9 @@ namespace DP1H.Model
 
             throw new NotImplementedException();
         }
-    
+        virtual public int Calculate() {
+            throw new NotImplementedException();
+        }
         public void Add(Node n) {
             this.connected_nodes.Add(n);
         }
@@ -34,6 +36,10 @@ namespace DP1H.Model
         {
         }
 
-        
+        public override void Run()
+        {
+            
+                throw new NotImplementedException();
+        }
     }
 }

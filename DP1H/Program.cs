@@ -15,7 +15,18 @@ namespace DP1H
             FileReader r = new FileReader();
             var t = r.ReadFile();
 
-            Console.ReadLine();
+            foreach (KeyValuePair<string, Node> entry in t)
+            {
+                if (entry.Value.GetType().Name == "InputHigh") {
+                    entry.Value.Run();
+                }
+                else if (entry.Value.GetType().Name == "InputLow") {
+                    entry.Value.Run();
+
+                }
+            }
+
+                Console.ReadLine();
            
         }
     }
