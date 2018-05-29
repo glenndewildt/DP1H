@@ -46,6 +46,7 @@
     <Compile Include="Factory\NodeFactory.cs" />
     <Compile Include="Interface\NodeInterface.cs" />
     <Compile Include="Model\AND.cs" />
+    <Compile Include="Model\Circuit.cs" />
     <Compile Include="Model\Gate.cs" />
     <Compile Include="Model\InputHigh.cs" />
     <Compile Include="Model\InputLow.cs" />

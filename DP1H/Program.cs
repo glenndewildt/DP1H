@@ -12,21 +12,14 @@ namespace DP1H
     {
         static void Main(string[] args)
         {
-            FileReader r = new FileReader();
-            var t = r.ReadFile();
-
-            foreach (KeyValuePair<string, Node> entry in t)
-            {
-                if (entry.Value.GetType().Name == "InputHigh") {
-                    entry.Value.Run();
-                }
-                else if (entry.Value.GetType().Name == "InputLow") {
-                    entry.Value.Run();
-
-                }
+            string s = "";
+            while (s != "x") {
+                Circuit c = new Circuit(@"c:\users\glenn\documents\visual studio 2015\Projects\DP1H\DP1H\Data\Circuit1_FullAdder.txt");
+                c.Run();
             }
-
-                Console.ReadLine();
+           
+            Console.WriteLine("x to exit");
+             s = Console.ReadLine();
            
         }
     }

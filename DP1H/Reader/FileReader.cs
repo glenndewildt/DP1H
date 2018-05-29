@@ -13,10 +13,10 @@ namespace DP1H.Reader
     {
 
 
-        public Dictionary<string, Node> ReadFile() {
+        public Dictionary<string, Node> ReadFile(string path) {
             Dictionary<string, Node> nodes = new Dictionary<string, Node>();
 
-            string[] lines = System.IO.File.ReadAllLines(@"c:\users\glenn\documents\visual studio 2015\Projects\DP1H\DP1H\Data\Circuit1_FullAdder.txt");
+            string[] lines = System.IO.File.ReadAllLines(path);
             NodeFactory factory = new NodeFactory();
             factory.RegisterNode("PROBE", new Probe());
             factory.RegisterNode("OR", new OR());
