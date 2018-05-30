@@ -9,6 +9,24 @@ namespace GateTest
     {
         //OR logic tests
         [TestMethod]
+        public void OrTestAdd()
+        {
+            OR n = new OR();
+            n.Add(new OR());            
+
+            Assert.AreEqual(1, n.GetConnectedNodes().Count);
+
+        }
+        public void OrTestRemove()
+        {
+            OR n = new OR();
+            OR a= new OR();
+            n.Add(a);
+            n.Remove(a);
+
+            Assert.AreEqual(0, n.GetConnectedNodes().Count);
+        }
+        [TestMethod]
         public void OrTestPositive()
         {
             OR n = new OR();
@@ -54,6 +72,25 @@ namespace GateTest
         }
         //NOT logic tests
         [TestMethod]
+        public void NotTestAdd()
+        {
+            NOT n = new NOT();
+            n.Add(new NOT());
+
+            Assert.AreEqual(1, n.GetConnectedNodes().Count);
+
+        }
+        public void NotTestRemove()
+        {
+            NOT n = new NOT();
+            NOT a = new NOT();
+            n.Add(a);
+            n.Remove(a);
+
+            Assert.AreEqual(0, n.GetConnectedNodes().Count);
+        }
+
+        [TestMethod]
         public void NotTestPositive()
         {
             NOT n = new NOT();
@@ -75,6 +112,24 @@ namespace GateTest
         }
 
         //AND logic tests
+        [TestMethod]
+        public void AndTestAdd()
+        {
+            AND n = new AND();
+            n.Add(new AND());
+
+            Assert.AreEqual(1, n.GetConnectedNodes().Count);
+
+        }
+        public void AndTestRemove()
+        {
+            AND n = new AND();
+            AND a = new AND();
+            n.Add(a);
+            n.Remove(a);
+
+            Assert.AreEqual(0, n.GetConnectedNodes().Count);
+        }
 
         [TestMethod]
         public void AndTestPositive()
