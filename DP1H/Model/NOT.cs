@@ -69,7 +69,7 @@ namespace DP1H.Model
         }
         public override void CheckInputs()
         {
-            if (input1 == -1 || input2 == -1)
+            if (input1 == -1)
             {
                 throw new ValuesNotSetException();
             }
