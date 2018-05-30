@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
-    class Circuit : Node
+    class Circuit : GateComposite
     {
-        public Dictionary<string, Node> circuit;
+        public Dictionary<string, GateComposite> circuit;
 
         public Circuit(string path) {
             FileReader r = new FileReader();
@@ -19,19 +19,19 @@ namespace DP1H.Model
         }
         public Circuit(){ }
 
-        public override Node Clone()
+        public override GateComposite Clone()
         {
             return new Circuit() { circuit = this.circuit };
         }
 
-        public override List<Node> GetConnectedNodes()
+        public override List<GateComposite> GetConnectedNodes()
         {
             throw new NotImplementedException();
         }
 
         public override void Run()
         {
-            foreach (KeyValuePair<string, Node> entry in circuit)
+            foreach (KeyValuePair<string, GateComposite> entry in circuit)
             {
                 if (entry.Value.GetType().Name == "InputHigh")
                 {
