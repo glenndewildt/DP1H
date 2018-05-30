@@ -13,8 +13,8 @@ namespace DP1H.Reader
     {
 
 
-        public Dictionary<string, Node> ReadFile(string path) {
-            Dictionary<string, Node> nodes = new Dictionary<string, Node>();
+        public Dictionary<string, GateComposite> ReadFile(string path) {
+            Dictionary<string, GateComposite> nodes = new Dictionary<string, GateComposite>();
 
             string[] lines = System.IO.File.ReadAllLines(path);
             NodeFactory factory = new NodeFactory();
@@ -52,7 +52,7 @@ namespace DP1H.Reader
                 }
             }
             for (int x = lines.Length-1 ; x > counter-1; x--) {
-                foreach (KeyValuePair<string, Node> entry in nodes)
+                foreach (KeyValuePair<string, GateComposite> entry in nodes)
                 {
                     Regex regex = new Regex("^(.*):");
                     var r = regex.Match(lines[x]);
@@ -60,7 +60,7 @@ namespace DP1H.Reader
 
                     if (k == entry.Key )
                     {
-                        entry.Value.connected_nodes = new List<Node>();
+                        entry.Value.connected_nodes = new List<GateComposite>();
 
                         Regex regex1 = new Regex(":\t(.*);");
                         var r1 = regex1.Match(lines[x]);
@@ -69,7 +69,7 @@ namespace DP1H.Reader
                         string[] data = t.ToString().Split(',');
                         foreach (var d in data)
                         {
-                            Node myNode ;
+                            GateComposite myNode ;
                             if (nodes.TryGetValue(d, out myNode))
                             {
                                 entry.Value.connected_nodes.Add(myNode);

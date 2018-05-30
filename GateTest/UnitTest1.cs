@@ -10,7 +10,11 @@ namespace GateTest
         [TestMethod]
         public void AndTest()
         {
-            Node n = new AND();
+            AND n = new AND();
+            n. = 1;
+            n.input1 = 1;
+            n.Calculate();
+
         }
     }
 }

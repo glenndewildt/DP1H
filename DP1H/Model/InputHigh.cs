@@ -8,12 +8,11 @@ namespace DP1H.Model
 {
     class InputHigh: Gate
     {
-        int value = -1;
         public override void toString()
         {
             Console.WriteLine("INPUT");
         }
-        public override Node Clone()
+        public override GateComposite Clone()
         {
 
             return new InputHigh() { connected_nodes = this.connected_nodes, input1 = this.input1, input2 = this.input2 };
@@ -45,8 +44,33 @@ namespace DP1H.Model
                 }
             }
 
-            foreach (Node node in connected_nodes) {
+
+            TemplateRun();
+
+            /*
+            foreach (GateComposite node in connected_nodes) {
                 if (node.input1 == -1) {
+                    node.input1 = value;
+                    node.Run();
+                }
+                else if (node.input2 == -1)
+                {
+                    node.input2 = value;
+                    node.Run();
+                }
+            }*/
+        }
+
+        public override void PrintResult()
+        {
+        }
+
+        public override void SetValues(int value)
+        {
+            foreach (GateComposite node in connected_nodes)
+            {
+                if (node.input1 == -1)
+                {
                     node.input1 = value;
                     node.Run();
                 }
@@ -58,5 +82,10 @@ namespace DP1H.Model
             }
         }
 
+        public override void SetOutput() { }
+        public override void CheckInputs() { }
+
+        public override void RunInitial() { }
+       
     }
 }

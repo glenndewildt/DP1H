@@ -9,15 +9,15 @@ namespace DP1H.Factory
 {
     class NodeFactory
     {
-        private Dictionary<string, Node> _nodes;
+        private Dictionary<string, GateComposite> _nodes;
        public NodeFactory() {
-            _nodes = new Dictionary<string, Node>();
+            _nodes = new Dictionary<string, GateComposite>();
         }
-        public void RegisterNode(string name, Node node) {
+        public void RegisterNode(string name, GateComposite node) {
             _nodes.Add(name, node);
         }
-        public Node createNode(string type) {
-            Node node = _nodes[type];
+        public GateComposite createNode(string type) {
+            GateComposite node = _nodes[type];
             return node.Clone();
         }
     }

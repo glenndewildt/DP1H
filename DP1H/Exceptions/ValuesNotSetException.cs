@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DP1H.Model
+namespace DP1H.Exceptions
 {
-    interface NodeInterface
+    class ValuesNotSetException : Exception
     {
-          List<GateComposite> GetConnectedNodes();
-          void toString();
-
     }
 }
