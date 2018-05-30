@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
-    class Probe: Gate
+    public class Probe: Gate
     {
         public override void toString()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
-    class OR:Gate
+    public class OR:Gate
     {
         public override void toString()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
-    class NOT : Gate
+    public class NOT : Gate
     {
      
 

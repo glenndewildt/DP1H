@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
-    class AND: Gate
+  public  class AND: Gate
     {
         public override void toString()
         {

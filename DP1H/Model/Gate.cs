@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
-    class Gate: Node
+    public class Gate: Node
     {
         public Gate()
         {
