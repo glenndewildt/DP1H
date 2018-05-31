@@ -14,7 +14,7 @@ namespace DP1H
         {
             string s = "";
             while (s != "x") {
-                Circuit c = new Circuit(@"c:\users\glenn\documents\visual studio 2015\Projects\DP1H\DP1H\Data\Circuit1_FullAdder.txt");
+                Circuit c = new Circuit(@"F:\School\DP1H\DP1H\Data\Circuit1_FullAdder.txt");
                 c.Run();
             }
            

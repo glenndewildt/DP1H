@@ -1,4 +1,5 @@
-﻿using DP1H.Model;
+﻿using DP1H.Exceptions;
+using DP1H.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,17 @@ namespace DP1H.Factory
             _nodes.Add(name, node);
         }
         public GateComposite createNode(string type) {
-            GateComposite node = _nodes[type];
-            return node.Clone();
+            try
+            {
+                GateComposite node = _nodes[type];
+                return node.Clone();
+            }
+            catch (KeyNotFoundException e)
+            {
+                WrongInputException wie = new WrongInputException();
+                wie.InnerException = e;
+                return null;
+            }
         }
     }
 }

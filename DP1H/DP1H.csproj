@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\ValuesNotSetException.cs" />
+    <Compile Include="Exceptions\WrongInputException.cs" />
     <Compile Include="Factory\NodeFactory.cs" />
     <Compile Include="Interface\NodeInterface.cs" />
     <Compile Include="Model\AND.cs" />
