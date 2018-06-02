@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DP1H.Reader;
+using DP1H.View;
 
 namespace DP1H
 {
@@ -14,7 +15,9 @@ namespace DP1H
         {
             string s = "";
             while (s != "x") {
-                Circuit c = new Circuit(@"/Users/daPlaque/Documents/School/DP1H/DP1H/Data/Circuit1_FullAdder.txt");
+                Circuit c = new Circuit(@"F:\School\DP1H\DP1H\Data\Circuit1_FullAdder.txt");
+                ViewController vc = new ViewController();
+                vc.CreateGraphic(c);
                 c.Run();
             }
            

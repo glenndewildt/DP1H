@@ -26,7 +26,7 @@ namespace DP1H.Model
 
         public override List<GateComposite> GetConnectedNodes()
         {
-            throw new NotImplementedException();
+            return circuit.Select(kvp => kvp.Value).ToList();
         }
 
         public override void Run()

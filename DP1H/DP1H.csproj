@@ -59,6 +59,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\FileReader.cs" />
+    <Compile Include="View\GateGraphic.cs" />
+    <Compile Include="View\ViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
