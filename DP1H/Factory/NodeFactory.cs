@@ -25,9 +25,8 @@ namespace DP1H.Factory
             }
             catch (KeyNotFoundException e)
             {
-                WrongInputException wie = new WrongInputException();
-                wie.InnerException = e;
-                return null;
+                WrongInputException wie = new WrongInputException("wrong input", e);
+                throw wie;
             }
         }
     }

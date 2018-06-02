@@ -8,5 +8,9 @@ namespace DP1H.Exceptions
 {
     class WrongInputException : Exception
     {
+        public WrongInputException(String message, Exception innerException): base(message, innerException) {
+            
+        }
     }
+
 }

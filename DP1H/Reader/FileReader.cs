@@ -1,4 +1,5 @@
-﻿using DP1H.Factory;
+﻿using DP1H.Exceptions;
+using DP1H.Factory;
 using DP1H.Model;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,25 @@ namespace DP1H.Reader
                         string g = r2.Groups[1].ToString();
                         if (k != "" &&g != "" )
                         {
-                            nodes.Add(k, factory.createNode(g));
+                            try {
+                                nodes.Add(k, factory.createNode(g));
+                            }catch (WrongInputException e){
+                                Console.WriteLine("Input corrupted!");
+                                Console.WriteLine("corruption at line: " + counter);
+                                Console.WriteLine("line: " + line);
+
+                                String seperator = "";
+                                for (int i = 0; i < (e.InnerException.Message.Length * 1.1); i++){
+                                    seperator += "-"; 
+                                }
+                                Console.WriteLine(seperator);
+                                Console.WriteLine("Error: " + e.InnerException.Message);
+                                Console.WriteLine(seperator);
+                                Console.WriteLine("Press any key to exit.");
+                                Console.ReadKey();
+                                Environment.Exit(0);
+                                return null;
+                            }
 
                         }
                     

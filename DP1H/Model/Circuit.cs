@@ -49,5 +49,9 @@ namespace DP1H.Model
         {
             throw new NotImplementedException();
         }
+
+        public void CreateGraphic(){
+          
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace DP1H.Model
             {
                 Console.WriteLine("give input to the input node");
                 string v = Console.ReadLine();
+
                 if (Int32.TryParse(v, out x))
                 {
                     if (x > -1 && x < 2)
