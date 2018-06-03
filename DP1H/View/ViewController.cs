@@ -40,8 +40,9 @@ namespace DP1H.View
 
         }
         public void CreateGraphic(Circuit c)
-        {
-            List<GateComposite> list = c.GetConnectedNodes();
+        {   
+            Dictionary<String, GateComposite> dic = c.circuit;
+            List<GateComposite> list = dic.Values.ToList();
 
             foreach(GateComposite g in list)
             {

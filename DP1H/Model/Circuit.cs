@@ -9,7 +9,7 @@ namespace DP1H.Model
 {
     class Circuit : GateComposite
     {
-        public Dictionary<string, GateComposite> circuit;
+        public new Dictionary<string, GateComposite> circuit;
 
         public Circuit(string path) {
             FileReader r = new FileReader();
