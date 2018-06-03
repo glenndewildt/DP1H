@@ -15,6 +15,8 @@ namespace DP1H.View
         public void DrawGraphics() {
             int x = 0;
             int y = 0;
+
+            Console.WriteLine(graphiclist.Count());
             foreach (GateGraphic gg in graphiclist) {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.SetCursorPosition((gg.x)*15, (gg.y)*5);
@@ -60,12 +62,7 @@ namespace DP1H.View
             
             List<GateComposite> list = dic.Values.ToList();
 
-            foreach(GateComposite g in list)
-            {
-                GateGraphic gr = new GateGraphic(g);
-
-                graphiclist.Add(gr);
-            }
+       
 
             foreach (KeyValuePair<string, GateComposite> entry in dic)
             {
