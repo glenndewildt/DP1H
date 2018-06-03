@@ -16,6 +16,10 @@ namespace DP1H.Model
         {
             this.type = "Probe";
         }
+        public override int Calculate()
+        {
+            return input1;
+        }
         public override GateComposite Clone()
         {
 
