@@ -21,13 +21,26 @@ namespace DP1H.View
                 var myObjRef = gg.GetGate() as Gate;
                 if (myObjRef != null)
                 {
-                    Console.Write(string.Format(gg.GetGate().getType() + ": " + myObjRef.Calculate(), 0, 0, "s"));
+                    Console.Write(string.Format(gg.GetGate().getType() + ": " + myObjRef.Calculate() + " --- " , 0, 0, "s"));
+                    
+                    
 
                 }
                 else {
                     Console.Write(string.Format(gg.GetGate().getType(), 0, 0, "s"));
 
                 }
+
+                int tempy = Console.CursorTop;
+                int calcY = tempy;
+                foreach(Gate gc in gg.GetGate().connected_nodes)
+                {
+                    calcY++;
+                    Console.SetCursorPosition((gg.x) * 15, calcY);
+                    
+                    Console.Write(string.Format(gc.getType() + ": " + gc.Calculate() + " --- ", 0, 0, "s"));
+                }
+                Console.SetCursorPosition((gg.x), tempy);
 
 
                 Console.ResetColor();
@@ -36,19 +49,30 @@ namespace DP1H.View
                 }
 
             }
+
+            
             Console.SetCursorPosition(0, y+5);
 
         }
         public void CreateGraphic(Circuit c)
         {   
             Dictionary<String, GateComposite> dic = c.circuit;
+            
             List<GateComposite> list = dic.Values.ToList();
 
             foreach(GateComposite g in list)
             {
-                graphiclist.Add(new GateGraphic(g));
+                GateGraphic gr = new GateGraphic(g);
+
+                graphiclist.Add(gr);
             }
 
+            foreach (KeyValuePair<string, GateComposite> entry in dic)
+            {
+                GateGraphic gr = new GateGraphic(entry.Value);
+                gr.Name = entry.Key;
+                graphiclist.Add(gr);
+            }
 
             Dictionary<int,int> xy = new Dictionary<int, int>();
 

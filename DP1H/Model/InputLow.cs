@@ -18,7 +18,7 @@ namespace DP1H.Model
         }
         public InputLow()
         {
-            this.type = "InputLow";
+            this.type = "IL";
         }
         public override GateComposite Clone()
         {

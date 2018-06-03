@@ -12,6 +12,9 @@ namespace DP1H.View
         GateComposite gate;
         public int x;
         public int y;
+
+        public string Name { get; internal set; }
+
         public GateGraphic(GateComposite gate)
         {
             this.gate = gate;
