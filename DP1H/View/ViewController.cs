@@ -13,6 +13,8 @@ namespace DP1H.View
         List<GateGraphic> graphiclist = new List<GateGraphic>();
 
         public void DrawGraphics() {
+
+            Console.Clear();
             int x = 0;
             int y = 0;
 
@@ -23,7 +25,7 @@ namespace DP1H.View
                 var myObjRef = gg.GetGate() as Gate;
                 if (myObjRef != null)
                 {
-                    Console.Write(string.Format(gg.GetGate().getType() + ": " + myObjRef.Calculate() + " --- " , 0, 0, "s"));
+                    Console.Write(string.Format(gg.GetGate().getType() + ": " + myObjRef.Calculate() + " " , 0, 0, "s"));
                     
                     
 
@@ -40,7 +42,7 @@ namespace DP1H.View
                     calcY++;
                     Console.SetCursorPosition((gg.x) * 15, calcY);
                     
-                    Console.Write(string.Format(gc.getType() + ": " + gc.Calculate() + " --- ", 0, 0, "s"));
+                    Console.Write(string.Format(gc.getType() + ": " + gc.Calculate() + " ", 0, 0, "s"));
                 }
                 Console.SetCursorPosition((gg.x), tempy);
 

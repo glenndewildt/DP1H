@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ErrorChecker.cs" />
     <Compile Include="Exceptions\ValuesNotSetException.cs" />
     <Compile Include="Exceptions\WrongInputException.cs" />
     <Compile Include="Factory\NodeFactory.cs" />

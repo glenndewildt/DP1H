@@ -43,7 +43,7 @@ namespace DP1H.Model
 
         public override void SetOutput()
         {
-           
+            value = input1;
         }
         public override void CheckInputs()
         {
