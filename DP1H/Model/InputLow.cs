@@ -12,6 +12,10 @@ namespace DP1H.Model
         {
             Console.WriteLine("OUTPUT");
         }
+        public override int Calculate()
+        {
+            return value;
+        }
         public InputLow()
         {
             this.type = "InputLow";

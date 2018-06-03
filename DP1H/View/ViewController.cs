@@ -17,8 +17,19 @@ namespace DP1H.View
             int y = 0;
             foreach (GateGraphic gg in graphiclist) {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.SetCursorPosition((gg.x)*10, (gg.y)*5);
-                Console.Write(string.Format(gg.GetGate().getType(), 0 , 0, "s"));
+                Console.SetCursorPosition((gg.x)*15, (gg.y)*5);
+                var myObjRef = gg.GetGate() as Gate;
+                if (myObjRef != null)
+                {
+                    Console.Write(string.Format(gg.GetGate().getType() + ": " + myObjRef.Calculate(), 0, 0, "s"));
+
+                }
+                else {
+                    Console.Write(string.Format(gg.GetGate().getType(), 0, 0, "s"));
+
+                }
+
+
                 Console.ResetColor();
                 if (y < (gg.y) * 5) {
                     y = (gg.y) * 5;

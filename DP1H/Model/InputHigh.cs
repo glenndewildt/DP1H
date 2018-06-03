@@ -21,6 +21,10 @@ namespace DP1H.Model
         {
             this.type = "InputHigh";
         }
+        public override int Calculate()
+        {
+            return value;
+        }
         public override void Run()
         {
      
