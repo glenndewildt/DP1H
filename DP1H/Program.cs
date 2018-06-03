@@ -22,10 +22,14 @@ namespace DP1H
                  vc.CreateGraphic(c);
                 vc.DrawGraphics();
                 c.Run();
+
+                Console.WriteLine("x to exit");
+                s = Console.ReadLine();
+                Console.Clear();
             }
            
-            Console.WriteLine("x to exit");
-             s = Console.ReadLine();
+           
+
            
         }
     }
