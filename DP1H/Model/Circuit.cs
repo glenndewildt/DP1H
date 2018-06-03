@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
-    class Circuit : GateComposite
+   public class Circuit : GateComposite
     {
         public new Dictionary<string, GateComposite> circuit;
 
