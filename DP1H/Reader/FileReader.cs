@@ -12,19 +12,32 @@ namespace DP1H.Reader
 {
     public class FileReader
     {
-
-
-        public Dictionary<string, GateComposite> ReadFile(string path) {
-            Dictionary<string, GateComposite> nodes = new Dictionary<string, GateComposite>();
-
-            string[] lines = System.IO.File.ReadAllLines(path);
-            NodeFactory factory = new NodeFactory();
+        private Dictionary<string, GateComposite> nodes;
+        private NodeFactory factory;
+        public FileReader() {
+            factory = new NodeFactory();
+            nodes = new Dictionary<string, GateComposite>();
             factory.RegisterNode("PROBE", new Probe());
             factory.RegisterNode("OR", new OR());
             factory.RegisterNode("AND", new AND());
             factory.RegisterNode("NOT", new NOT());
             factory.RegisterNode("INPUT_HIGH", new InputHigh());
             factory.RegisterNode("INPUT_LOW", new InputLow());
+        }
+       public Dictionary<string, GateComposite> GetNodes() {
+            return nodes;
+        }
+        void AddGate(string k, string g) {
+
+            nodes.Add(k, factory.createNode(g));
+
+
+        }
+
+        public void ReadFile(string path) {
+
+            string[] lines = System.IO.File.ReadAllLines(path);
+       
 
 
             int counter = 0;
@@ -41,7 +54,7 @@ namespace DP1H.Reader
                         if (k != "" &&g != "" )
                         {
                             try {
-                                nodes.Add(k, factory.createNode(g));
+                        AddGate(k, g);
                             }catch (WrongInputException e){
                                 Console.WriteLine("Input corrupted!");
                                 Console.WriteLine("corruption at line: " + counter);
@@ -57,7 +70,6 @@ namespace DP1H.Reader
                                 Console.WriteLine("Press any key to exit.");
                                 Console.ReadKey();
                                 Environment.Exit(0);
-                                return null;
                             }
 
                         }
@@ -70,14 +82,22 @@ namespace DP1H.Reader
                     break;
                 }
             }
-            for (int x = lines.Length-1 ; x > counter-1; x--) {
+
+       
+            ConnectGates(lines, counter);
+
+        }
+
+        void ConnectGates(string[] lines , int counter) {
+            for (int x = lines.Length - 1; x > counter - 1; x--)
+            {
                 foreach (KeyValuePair<string, GateComposite> entry in nodes)
                 {
                     Regex regex = new Regex("^(.*):");
                     var r = regex.Match(lines[x]);
                     string k = r.Groups[1].ToString();
 
-                    if (k == entry.Key )
+                    if (k == entry.Key)
                     {
                         entry.Value.connected_nodes = new List<GateComposite>();
 
@@ -88,7 +108,7 @@ namespace DP1H.Reader
                         string[] data = t.ToString().Split(',');
                         foreach (var d in data)
                         {
-                            GateComposite myNode ;
+                            GateComposite myNode;
                             if (nodes.TryGetValue(d, out myNode))
                             {
                                 entry.Value.connected_nodes.Add(myNode);
@@ -100,10 +120,8 @@ namespace DP1H.Reader
 
 
                 }
-                
-            }
-            return nodes;
 
+            }
         }
 
     }

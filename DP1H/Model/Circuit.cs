@@ -13,7 +13,8 @@ namespace DP1H.Model
 
         public Circuit(string path) {
             FileReader r = new FileReader();
-            circuit = r.ReadFile(path);
+            r.ReadFile(path);
+            circuit = r.GetNodes();
 
            
         }
