@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DP1H
@@ -12,9 +13,35 @@ namespace DP1H
 
         public void CheckForErrors(Circuit c)
         {
+            Console.WriteLine("error checking.");
+            Circuit copy = c;
+
+
+            Thread t = new Thread(new ThreadStart(c.Run));
+            t.Start();
+
+            Console.WriteLine();
+
+            int counter = 0;
+            while (true)
+            {
+                Console.Write(". ");
+                System.Threading.Thread.Sleep(1000);
+                counter++;
+                if(counter == 5)
+                {
+                    break;
+                }
+                
+            }
+
+            Console.WriteLine(t.ThreadState);
+            Console.ReadKey();
+            
+
+
             try
             {
-                Circuit copy = c;
                 copy.Run();
                 List<GateComposite> faultygates = new List<GateComposite>();
                 foreach (GateComposite gc in copy.GetConnectedNodes())
@@ -45,6 +72,8 @@ namespace DP1H
             {
 
             }
+
+
         }
     }
 }
