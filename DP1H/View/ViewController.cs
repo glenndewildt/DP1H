@@ -20,8 +20,13 @@ namespace DP1H.View
                 Console.SetCursorPosition((gg.x)*10, (gg.y)*5);
                 Console.Write(string.Format(gg.GetGate().getType(), 0 , 0, "s"));
                 Console.ResetColor();
+                if (y < (gg.y) * 5) {
+                    y = (gg.y) * 5;
+                }
 
             }
+            Console.SetCursorPosition(0, y+5);
+
         }
         public void CreateGraphic(Circuit c)
         {
