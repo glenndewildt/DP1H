@@ -13,6 +13,10 @@ namespace DP1H.Model
         {
             Console.WriteLine("OR");
         }
+        public OR()
+        {
+            this.type = "OR";
+        }
         public override GateComposite Clone()
         {
 

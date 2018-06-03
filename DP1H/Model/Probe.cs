@@ -12,6 +12,10 @@ namespace DP1H.Model
         {
             Console.WriteLine("Probe");
         }
+        public Probe()
+        {
+            this.type = "Probe";
+        }
         public override GateComposite Clone()
         {
 

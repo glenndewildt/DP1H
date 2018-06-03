@@ -18,6 +18,8 @@ namespace DP1H.Model
            
         }
         public Circuit(){ }
+        public override string getType() { return type; }
+
 
         public override GateComposite Clone()
         {

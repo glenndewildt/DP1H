@@ -11,9 +11,12 @@ namespace DP1H.Model
         public int input1 = -1;
         public int input2  = -1;
         public int value = -1;
+        public string type;
+
         public List<GateComposite> connected_nodes;
         public Dictionary<string, GateComposite> circuit;
-       
+        abstract public string getType();
+
         abstract public void Run();
         abstract  public GateComposite Clone();
         abstract public List<GateComposite> GetConnectedNodes();

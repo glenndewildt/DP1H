@@ -12,6 +12,10 @@ namespace DP1H.Model
         {
             Console.WriteLine("OUTPUT");
         }
+        public InputLow()
+        {
+            this.type = "InputLow";
+        }
         public override GateComposite Clone()
         {
 

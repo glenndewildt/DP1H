@@ -13,6 +13,9 @@ namespace DP1H.Model
         {
             Console.WriteLine("AND");
         }
+        public AND() {
+            this.type = "AND";
+        }
         public override GateComposite Clone()
         {
 

@@ -9,8 +9,11 @@ namespace DP1H.Model
 {
     public class NOT : Gate
     {
-     
 
+        public NOT()
+        {
+            this.type = "NOT";
+        }
         public override void toString()
         {
             Console.WriteLine("NOT");

@@ -17,6 +17,10 @@ namespace DP1H.Model
 
             return new InputHigh() { connected_nodes = this.connected_nodes, input1 = this.input1, input2 = this.input2 };
         }
+        public InputHigh()
+        {
+            this.type = "InputHigh";
+        }
         public override void Run()
         {
      

@@ -11,11 +11,13 @@ namespace DP1H.Model
     abstract public class Gate: GateComposite
     {
         public Gate self;
+
         public Gate()
         {
             connected_nodes = new List<GateComposite>();
             self = this;
         }
+        public override string getType() { return type; }
 
         public override GateComposite Clone() {
 

@@ -11,6 +11,18 @@ namespace DP1H.View
     {
 
         List<GateGraphic> graphiclist = new List<GateGraphic>();
+
+        public void DrawGraphics() {
+            int x = 0;
+            int y = 0;
+            foreach (GateGraphic gg in graphiclist) {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition((gg.x)*10, (gg.y)*5);
+                Console.Write(string.Format(gg.GetGate().getType(), 0 , 0, "s"));
+                Console.ResetColor();
+
+            }
+        }
         public void CreateGraphic(Circuit c)
         {
             List<GateComposite> list = c.GetConnectedNodes();
