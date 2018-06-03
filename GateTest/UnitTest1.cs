@@ -5,6 +5,26 @@ using DP1H.Model;
 namespace GateTest
 {
     [TestClass]
+    public class CircuitTest
+    {
+        [TestMethod]
+        public void FileNotFound()
+        {
+            try
+            {
+                Circuit c = new DP1H.Model.Circuit("");
+                Assert.Fail(); // if we got here, no exception was thrown, which is bad
+            }
+            catch (Exception e)
+            {
+                String expected = "Lege padnaam is niet geldig.";
+                Assert.AreEqual(expected, e.Message);
+            }
+
+        }
+    }
+
+    [TestClass]
     public class Gate
     {
         //OR logic tests
@@ -17,6 +37,8 @@ namespace GateTest
             Assert.AreEqual(1, n.GetConnectedNodes().Count);
 
         }
+        [TestMethod]
+
         public void OrTestRemove()
         {
             OR n = new OR();
@@ -80,6 +102,8 @@ namespace GateTest
             Assert.AreEqual(1, n.GetConnectedNodes().Count);
 
         }
+        [TestMethod]
+
         public void NotTestRemove()
         {
             NOT n = new NOT();
@@ -121,6 +145,8 @@ namespace GateTest
             Assert.AreEqual(1, n.GetConnectedNodes().Count);
 
         }
+        [TestMethod]
+
         public void AndTestRemove()
         {
             AND n = new AND();
