@@ -75,6 +75,12 @@ namespace DP1H.Model
             */
         }
 
+        public void DefaultRun()
+        {
+            value = 0;
+            TemplateRun();
+        }
+
         public override void PrintResult()
         {
         }
@@ -86,13 +92,22 @@ namespace DP1H.Model
                 if (node.input1 == -1)
                 {
                     node.input1 = value;
-                    node.Run();
                 }
                 else if (node.input2 == -1)
                 {
                     node.input2 = value;
-                    node.Run();
                 }
+                else
+                {
+                    Console.WriteLine("Possible infinite loop.");
+                    Console.WriteLine("Press any key to exit.");
+                    Console.ReadKey();
+                    Environment.Exit(0);
+                }
+
+                node.Run();
+
+
             }
         }
 

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorChecker.cs" />
+    <Compile Include="Exceptions\InfiniteLoopException.cs" />
     <Compile Include="Exceptions\ValuesNotSetException.cs" />
     <Compile Include="Exceptions\WrongInputException.cs" />
     <Compile Include="Factory\NodeFactory.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="Model\InputHigh.cs" />
     <Compile Include="Model\InputLow.cs" />
     <Compile Include="Model\GateComposite.cs" />
+    <Compile Include="Model\NAND.cs" />
+    <Compile Include="Model\NOR.cs" />
     <Compile Include="Model\NOT.cs" />
     <Compile Include="Model\OR.cs" />
     <Compile Include="Model\Probe.cs" />
@@ -68,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Circuit1_FullAdder.txt" />
+    <Content Include="Data\Circuit4_InfiniteLoop.txt" />
+    <Content Include="Data\Circuit5_NotConnected.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

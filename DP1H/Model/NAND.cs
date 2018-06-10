@@ -54,13 +54,13 @@ namespace DP1H.Model
                 if (node.input1 == -1)
                 {
                     node.input1 = value;
-                    node.Run();
                 }
                 else if (node.input2 == -1)
                 {
                     node.input2 = value;
-                    node.Run();
                 }
+
+                node.Run();
             }
         }
 

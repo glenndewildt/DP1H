@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace DP1H.Model
 {
+
     public class OR:Gate
     {
+
+        int runCounter = 0;
         public override void toString()
         {
             Console.WriteLine("OR");
@@ -53,18 +56,19 @@ namespace DP1H.Model
                 if (node.input1 == -1)
                 {
                     node.input1 = value;
-                    node.Run();
                 }
                 else if (node.input2 == -1)
                 {
                     node.input2 = value;
-                    node.Run();
                 }
+
+                node.Run();
             }
         }
 
         public override void SetOutput()
         {
+            
             value = Calculate();
         }
         public override void CheckInputs()

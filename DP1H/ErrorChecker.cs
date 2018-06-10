@@ -1,4 +1,5 @@
-﻿using DP1H.Model;
+﻿using DP1H.Exceptions;
+using DP1H.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,38 +12,30 @@ namespace DP1H
     class ErrorChecker
     {
 
-        public void CheckForErrors(Circuit c)
+        public void CheckForErrors(String s)
         {
-            Console.WriteLine("error checking.");
-            Circuit copy = c;
-
-
-            Thread t = new Thread(new ThreadStart(c.Run));
-            t.Start();
-
-            Console.WriteLine();
-
-            int counter = 0;
-            while (true)
-            {
-                Console.Write(". ");
-                System.Threading.Thread.Sleep(1000);
-                counter++;
-                if(counter == 5)
-                {
-                    break;
-                }
-                
-            }
-
-            Console.WriteLine(t.ThreadState);
-            Console.ReadKey();
+            Circuit copy = new Circuit(@s);
             
-
-
             try
             {
-                copy.Run();
+
+                foreach (KeyValuePair<string, GateComposite> entry in copy.circuit)
+                {
+                    if (entry.Value.GetType().Name == "InputHigh")
+                    {
+                        Gate g = (Gate) entry.Value;
+                        g.CheckConnected();
+                    }
+                    else if (entry.Value.GetType().Name == "InputLow")
+                    {
+                        Gate g = (Gate)entry.Value;
+                        g.CheckConnected();
+
+                    }
+                }
+
+                copy.DefaultRun();
+
                 List<GateComposite> faultygates = new List<GateComposite>();
                 foreach (GateComposite gc in copy.GetConnectedNodes())
                 {
@@ -51,27 +44,46 @@ namespace DP1H
                         faultygates.Add(gc);
                     }
                 }
-                   
+
+                bool faulty = false;
+                
                 if(faultygates.Count() > 0)
                 {
-                    Console.WriteLine("Error occured.");
-                    Console.WriteLine("Not all gates are in use.");
-                    Console.WriteLine("Faulty gates: ");
-
-                    foreach(GateComposite gc in faultygates)
+                    foreach (GateComposite gc in faultygates)
                     {
-                        Console.WriteLine(gc.getType());
+                        if(gc.getType() == "Probe")
+                        {
+                            faulty = true;
+                            break;
+                        }
                     }
 
-                    Console.WriteLine("Press any key to exit.");
-                    Console.ReadKey();
-                    Environment.Exit(0);
-                }
 
-            } catch(Exception e)
+                    if (faulty){
+                        Console.WriteLine("Error occured.");
+                        Console.WriteLine("Probes not reachable");
+
+                        Console.WriteLine("Press any key to exit.");
+                        Console.ReadKey();
+                        Environment.Exit(0);
+                    }
+                }
+                
+            } catch(InfiniteLoopException e)
+            {
+                Console.WriteLine("Error occured.");
+                Console.WriteLine("Infinite Loop");
+
+                Console.WriteLine("Press any key to exit.");
+                Console.ReadKey();
+                Environment.Exit(0);
+            } catch(Exception j)
             {
 
             }
+
+
+            Console.Clear(); 
 
 
         }

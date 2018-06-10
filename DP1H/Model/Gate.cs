@@ -11,7 +11,7 @@ namespace DP1H.Model
     abstract public class Gate: GateComposite
     {
         public Gate self;
-
+        public int timesReached = 0;
         public Gate()
         {
             connected_nodes = new List<GateComposite>();
@@ -59,8 +59,10 @@ namespace DP1H.Model
                     SetValues(value);
                     RunInitial();
                     PrintResult();
+
+
             }
-             catch(ValuesNotSetException e)
+            catch (ValuesNotSetException e)
             {
                 
             }
@@ -76,7 +78,18 @@ namespace DP1H.Model
 
         public abstract void RunInitial();
 
-
+        public void CheckConnected()
+        {
+            timesReached++;
+            if(timesReached > 100)
+            {
+                throw new InfiniteLoopException();
+            }
+            foreach(Gate node in connected_nodes)
+            {
+                node.CheckConnected();
+            }
+        }
 
 
     }

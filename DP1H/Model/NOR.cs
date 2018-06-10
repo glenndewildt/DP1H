@@ -28,13 +28,16 @@ namespace DP1H.Model
         }
         public override int Calculate()
         {
-            if(input1 == 0 && input2 == 0){
+            if (input1 == 0 && input2 == 0)
+            {
                 return 1;
-            }else{
+            }
+            else
+            {
                 return 0;
             }
 
-         
+
         }
 
         public override void PrintResult()
@@ -48,13 +51,13 @@ namespace DP1H.Model
                 if (node.input1 == -1)
                 {
                     node.input1 = value;
-                    node.Run();
                 }
                 else if (node.input2 == -1)
                 {
                     node.input2 = value;
-                    node.Run();
                 }
+
+                node.Run();
             }
         }
 
