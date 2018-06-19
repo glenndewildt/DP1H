@@ -13,8 +13,9 @@ namespace DP1H.Model
         public string path;
         public Circuit(string path) {
             FileReader r = new FileReader();
-            r.ReadFile(path);
-            circuit = r.GetNodes();
+           CircuitSerielizer cs = new CircuitSerielizer();
+            cs.Serielize(r.ReadFile(path));
+            circuit = cs.GetNodes();
             this.path = path;
 
            
