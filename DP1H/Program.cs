@@ -17,9 +17,9 @@ namespace DP1H
             string s = "";
             while (s != "x") {
 
-                string filename = "Circuit1_FullAdder.txt";
- //             string filename = "Circuit4_InfiniteLoop.txt";
- //             string filename = "Circuit5_NotConnected.txt";
+ //               string filename = "Circuit1_FullAdder.txt";
+  //            string filename = "Circuit4_InfiniteLoop.txt";
+             string filename = "Circuit5_NotConnected.txt";
                var path =  Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"\\Data\\",filename);
 
                 Circuit c = new Circuit(path);
@@ -31,6 +31,8 @@ namespace DP1H
                 vc.CreateGraphic(c);
                 
                 c.Run();
+                Console.WriteLine("press any to show detail view");
+                s = Console.ReadLine();
                 vc.DrawGraphics();
 
                 Console.WriteLine("x to exit");
