@@ -17,9 +17,9 @@ namespace DP1H
             string s = "";
             while (s != "x") {
 
- //               string filename = "Circuit1_FullAdder.txt";
+                string filename = "Circuit1_FullAdder.txt";
   //            string filename = "Circuit4_InfiniteLoop.txt";
-             string filename = "Circuit5_NotConnected.txt";
+  //           string filename = "Circuit5_NotConnected.txt";
                var path =  Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"\\Data\\",filename);
 
                 Circuit c = new Circuit(path);
