@@ -22,12 +22,7 @@ namespace DP1H.Model
         }
         public override GateComposite Clone()
         {
-
             return new Probe() { connected_nodes = this.connected_nodes, input1 = this.input1, input2 = this.input2 };
-        }
-        public override void Run()
-        {
-            TemplateRun();
         }
 
         public override void PrintResult()
@@ -36,24 +31,11 @@ namespace DP1H.Model
             Console.WriteLine("Result= " + input1 + "");
         }
 
-        public override void SetValues(int value)
-        {
-            
-        }
-
         public override void SetOutput()
         {
             value = input1;
         }
-        public override void CheckInputs()
-        {
-            
-        }
 
-        public override void RunInitial()
-        {
-           
-        }
 
     }
 }

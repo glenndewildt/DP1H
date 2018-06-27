@@ -54,7 +54,7 @@ namespace DP1H.Model
             }
 
 
-            TemplateRun();
+            base.Run();
 
 
             /*
@@ -78,12 +78,9 @@ namespace DP1H.Model
         public void DefaultRun()
         {
             value = 0;
-            TemplateRun();
+            Run();
         }
 
-        public override void PrintResult()
-        {
-        }
 
         public override void SetValues(int value)
         {
@@ -106,14 +103,7 @@ namespace DP1H.Model
                 }
 
                 node.Run();
-
-
             }
         }
-
-        public override void SetOutput() { }
-        public override void CheckInputs() { }
-
-        public override void RunInitial() { }
     }
 }

@@ -54,7 +54,7 @@ namespace DP1H.Model
             }
 
 
-            TemplateRun();
+            base.Run();
 
             /*
             foreach (GateComposite node in connected_nodes) {
@@ -74,11 +74,9 @@ namespace DP1H.Model
         public void DefaultRun()
         {
             value = 1;
-            TemplateRun();
+            Run();
         }
-        public override void PrintResult()
-        {
-        }
+
 
         public override void SetValues(int value)
         {
@@ -104,11 +102,6 @@ namespace DP1H.Model
 
             }
         }
-
-        public override void SetOutput() { }
-        public override void CheckInputs() { }
-
-        public override void RunInitial() { }
        
     }
 }

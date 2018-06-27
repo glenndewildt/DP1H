@@ -42,13 +42,8 @@ namespace DP1H.Model
         {
         }
 
-        public override void Run()
-        {
-            
-                throw new NotImplementedException();
-        }
 
-        public void TemplateRun()
+        public override void Run()
         {
             //using an exception to check wether any error's occur.
             //If there's an input equal to -1, then it should stop running.
@@ -57,7 +52,6 @@ namespace DP1H.Model
                     CheckInputs();
                     SetOutput();
                     SetValues(value);
-                    RunInitial();
                     PrintResult();
 
 
@@ -69,14 +63,13 @@ namespace DP1H.Model
 
         }
 
-        public abstract void PrintResult();
+        public virtual void PrintResult() { }
 
-        public abstract void SetValues(int value);
+        public virtual void SetValues(int value) { }
 
-        public abstract void SetOutput();
-        public abstract void CheckInputs();
+        public virtual void SetOutput() { self.value = self.Calculate(); }
+        public virtual void CheckInputs() { }
 
-        public abstract void RunInitial();
 
         public void CheckConnected()
         {
