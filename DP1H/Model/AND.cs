@@ -9,7 +9,6 @@ namespace DP1H.Model
 {
     public class AND : Gate
     {
-        int runCounter = 0;
         public override void toString()
         {
             Console.WriteLine("AND");
@@ -40,24 +39,7 @@ namespace DP1H.Model
 
         }
 
-        public override void SetValues(int value)
-        {
-            foreach (GateComposite node in connected_nodes)
-            {
-                if (node.input1 == -1)
-                {
-                    node.input1 = value;
-                }
-                else if (node.input2 == -1)
-                {
-                    node.input2 = value;
-                }
-
-                node.Run();
-
-            }
-        }
-
+        
         public override void CheckInputs()
         {
             if (input1 == -1 || input2 == -1)

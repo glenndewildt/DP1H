@@ -65,7 +65,21 @@ namespace DP1H.Model
 
         public virtual void PrintResult() { }
 
-        public virtual void SetValues(int value) { }
+        public virtual void SetValues(int value) {
+            foreach (GateComposite node in connected_nodes)
+            {
+                if (node.input1 == -1)
+                {
+                    node.input1 = value;
+                }
+                else if (node.input2 == -1)
+                {
+                    node.input2 = value;
+                }
+
+                node.Run();
+            }
+        }
 
         public virtual void SetOutput() { self.value = self.Calculate(); }
         public virtual void CheckInputs() { }
