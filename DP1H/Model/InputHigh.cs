@@ -74,7 +74,7 @@ namespace DP1H.Model
         public void DefaultRun()
         {
             value = 1;
-            Run();
+            base.Run();
         }
 
 
